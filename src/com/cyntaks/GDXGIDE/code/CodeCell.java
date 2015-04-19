@@ -121,12 +121,8 @@ public class CodeCell extends Cell {
 				atom.setColor(WHITE_SPACE_COLOR);
 				atoms.add(atom);
 			} else { //everything else
-				Random random = new Random((int)(node.getToken().getType() * colorSeed));
-				random.nextFloat();
-				//float red = modRand(1, random.nextFloat());
-				//float green = modRand(Math.round(colorSeed), random.nextFloat());
-				//float blue = modRand(Math.round(colorSeed), random.nextFloat());
-				Color color = null;//new Color(red, green, blue, 1);
+				Color color;
+
 				int id = node.getTokenType();
 				if(node.isLetter())
 					id = node.getParent().getTokenType();
@@ -170,6 +166,13 @@ public class CodeCell extends Cell {
 				} else {
 					color = new Color(190/255f, 235/255f, 255/255f, 1);
 				}
+
+				Random random = new Random((int)(node.getToken().getType() * colorSeed));
+				random.nextFloat();
+				float red = modRand(1, random.nextFloat());
+				float green = modRand(Math.round(colorSeed), random.nextFloat());
+				float blue = modRand(Math.round(colorSeed), random.nextFloat());
+				color = new Color(red, green, blue, 1);
 				
 				int fontSize = config.getFontSize();
 				

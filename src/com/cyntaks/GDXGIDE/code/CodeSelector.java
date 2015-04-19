@@ -214,7 +214,7 @@ public class CodeSelector extends Selector{
 	/**
 	 * Replaces the cells which correspond to the children of the passed in node with a new
 	 * cell for the passed in node. 
-	 * @param parent The node which a new Cell should be formed for, to replace its children
+	 * @parwam parent The node which a new Cell should be formed for, to replace its children
 	 * 
 	 * @return The Cell which replaced the less abstract Cells
 	 */

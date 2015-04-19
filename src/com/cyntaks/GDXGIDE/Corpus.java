@@ -9,7 +9,7 @@ import com.cyntaks.GDXGIDE.util.VariableSizeBox;
 import com.cyntaks.sgf.event.Event;
 import com.cyntaks.sgf.event.EventListener;
 
-public class Corpus implements EventListener, Drawable{
+public class Corpus implements EventListener, Drawable {
 	private boolean debug;
 	private State state = new State();
 	private Drawable drawable;
