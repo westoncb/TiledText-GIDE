@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
+	<classpathentry kind="lib" path="/Users/weston/Documents/PDB/Dropbox/JavaWorkspace/GDXGIDE/lib"/>
+	<classpathentry kind="lib" path="lib/antlr-3.4-complete.jar"/>
+	<classpathentry kind="lib" path="lib/AppleJavaExtensions.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-backend-android.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-backend-lwjgl-natives.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-backend-lwjgl.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-natives.jar"/>
+	<classpathentry kind="lib" path="lib/gdx.jar"/>
+	<classpathentry kind="lib" path="lib/jinput-osx.jnilib"/>
+	<classpathentry kind="lib" path="lib/jinput.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-controllers/gdx-controllers-desktop-natives.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-controllers/gdx-controllers-desktop.jar"/>
+	<classpathentry kind="lib" path="lib/gdx-controllers/gdx-controllers.jar"/>
+	<classpathentry kind="lib" path="/Users/weston/Downloads/lwjgl-2.9.1/jar/AppleJavaExtensions.jar"/>
+	<classpathentry kind="lib" path="/Users/weston/Downloads/lwjgl-2.9.1/jar/asm-debug-all.jar"/>
+	<classpathentry kind="lib" path="/Users/weston/Downloads/lwjgl-2.9.1/jar/jinput.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

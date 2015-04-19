@@ -1,0 +1,5 @@
+<program>
+	<window overimage="images/barTex.png" underimage="images/newTest.png" bordersize="6" in-transition="com.cyntaks.GDXGIDE.transitions.FadeFromBlackTransition" out-transition="com.cyntaks.GDXGIDE.transitions.FadeToBlackTransition" width=".32" height=".72" orientation="vertical">
+		<grid type="com.cyntaks.GDXGIDE.Grid" structuremanager="com.cyntaks.GDXGIDE.TreeManager" gapsize="3" rowsperscreen="15" colsperscreen="2" orientation="vertical" cellconfig="default"></grid>
+	</window>
+</program>

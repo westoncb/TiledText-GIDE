@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="what was there">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/what was there/gdx-natives.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/what was there/jinput.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/what was there/gdx.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/what was there/gdx-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/what was there/gdx-backend-lwjgl-natives.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/what was there/gdx-backend-lwjgl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/what was there/jinput_native.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/what was there/gdx-backend-lwjgl-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

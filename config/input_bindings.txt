@@ -1,0 +1,13 @@
+GIDE_exit=key_escape
+all_modifier1=key_leftControl,key_rightControl
+all_mainSelect=mouse_leftButton
+all_altSelect=mouse_rightButton
+all_kill=key_k
+grid_delete=key_d
+activate=mouse_leftButton
+select=key_shift_left
+insert=key_i
+delete=key_delete
+generic_1=key_space
+generic_2=key_u
+generic_3=key_r

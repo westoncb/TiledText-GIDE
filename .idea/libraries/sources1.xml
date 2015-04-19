@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="sources1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/sources/gdx-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sources/gdx-backend-jglfw-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sources/gdx-backend-android-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sources/gdx-backend-lwjgl-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sources/gdx-backend-robovm-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sources/gdx-backend-gwt-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sources/gdx-backend-headless-sources.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

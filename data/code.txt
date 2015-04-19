@@ -1,0 +1,141 @@
+package com.cyntaks.GDXGIDE;
+
+import java.util.ArrayList;
+
+import com.badlogic.gdx.Gdx;
+import com.cyntaks.GDXGIDE.input.AbstractInputHandler;
+import com.cyntaks.GDXGIDE.input.GridInputHandler;
+
+public class Grid{
+
+	private boolean alive;
+	private Cell[][] cells;
+	private int rows;
+	private int cols;
+	
+	public static final int HORIZONTAL = 0;
+	public static final int VERTICAL = 1;
+	private int orientation;
+	
+	public static final int NEIGHBOR_UP = 0;
+	public static final int NEIGHBOR_DOWN = 1;
+	public static final int NEIGHBOR_LEFT = 2;
+	public static final int NEIGHBOR_RIGHT = 3;
+
+	private static ArrayList<Cell> lateRenderList = new ArrayList<Cell>();
+	private ArrayList<Cell> visibleCells = new ArrayList<Cell>();
+
+	private CellDragger cellDragger;
+	private int gapSize;
+	
+	private int rowsPerScreen;
+	private int colsPerScreen;
+
+	protected static Cell BLANK_TILE;
+	
+	private GridInputHandler inputHandler;
+	private float scrollX;
+	private float scrollY;
+	private float scrollDx;
+	private float scrollDy;
+	private float lastScrollX;
+	private float lastScrollY;
+	
+	private Window window;
+	
+	private ScrollIndicator firstScrollIndicator;
+	private ScrollIndicator secondScrollIndicator;
+
+	static{
+		Grid grid = new Grid(new int[]{0}, 0, 0, 0, 0);
+		BLANK_TILE = new Cell(grid, 0);
+		Window win = new Window(0, 0, 0, 0);
+		win.setGrid(grid);
+		BLANK_TILE.setDisabled(true);
+	}
+	
+	public Grid(int[] data, int rowsPerScreen, int colsPerScreen, int gapSize, int orientation) {
+		this(data, gapSize, orientation);
+		this.rowsPerScreen = rowsPerScreen;
+		this.colsPerScreen = colsPerScreen;
+		
+		cells = new Cell[1][data.length];
+		
+		for (int j = 0; j < data.length; j++) {
+			cells[0][j] = new Cell(this, data[j]);
+			cells[0][j].setXInsets(5);
+			cells[0][j].setYInsets(5);
+		}
+	}
+	
+	protected Grid(int[] data,  int gapSize, int orientation) {
+		this.gapSize = gapSize;
+		this.orientation = orientation;
+			
+		cellDragger = new CellDragger(this);
+		
+		if(orientation == Grid.HORIZONTAL) {
+			firstScrollIndicator = new ScrollIndicator(ScrollIndicator.LEFT);
+			secondScrollIndicator = new ScrollIndicator(ScrollIndicator.RIGHT);
+		} else {
+			firstScrollIndicator = new ScrollIndicator(ScrollIndicator.UP);
+			secondScrollIndicator = new ScrollIndicator(ScrollIndicator.DOWN);
+		}
+	}
+	
+	/**
+	 * @param colsPerScreen The number of columns per page
+	 * @param windowWidth Width of the window this application is running in
+	 * @param windowHeight Height of the window this application is running in
+	 * @param gap Size of the gap between rows and columns.
+	 */
+	public void changeAppearance(int rowsPerScreen, int colsPerScreen, int gap) {
+		this.rowsPerScreen = rowsPerScreen;
+		this.colsPerScreen = colsPerScreen;
+		
+		float cellWidth = (int)calcCellWidth();
+		float cellHeight = (int)calcCellHeight();
+		
+		//used for counting total rows and cols
+		int lastCol = -1;
+		int lastRow = -1;
+		
+		if(orientation == Grid.VERTICAL) {
+			this.cols = colsPerScreen;
+			this.rows = 0;
+		} else {
+			this.rows = rowsPerScreen;
+			this.cols = 0;
+		}
+		
+		for (int i = 0; i < cells[0].length; i++) {
+			int row = 0;
+			int col = 0;
+			
+			if(orientation == Grid.VERTICAL) {
+				col = i % colsPerScreen;
+				row = i / colsPerScreen;
+				
+				if(row != lastRow) {
+					lastRow = row;
+					this.rows++; //take a count of the number of rows in the new layout
+				}
+			} else {
+				row = i % rowsPerScreen;
+				col = i / rowsPerScreen;
+				
+				if(col != lastCol) {
+					lastCol = col;
+					this.cols++; //take a count of the number of cols in the new layout
+				}
+			}
+		}
+
+		Cell[][] newCells = new Cell[rows][cols];
+		for (int row = 0; row < rows; row++) {
+			for (int col = 0; col < cols; col++) {
+				int index = row * cols + col;
+				int rowIndex = (rows-1) - row;
+				if(index < cells[0].length) {
+					newCells[rowIndex][col] = cells[0][index];
+					newCells[rowIndex][col].resize(cellWidth, cellHeight, 

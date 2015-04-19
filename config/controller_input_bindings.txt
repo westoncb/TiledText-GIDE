@@ -1,0 +1,10 @@
+exit=key_escape
+activate=controller_b0
+select=controller_b2
+insert=controller_b3
+delete=controller_z0_forward
+select_next=controller_pov0_right
+select_previous=controller_pov0_left
+generic_1=controller_b1
+generic_2=controller_b4
+generic_3=controller_b5
