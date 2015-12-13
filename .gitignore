@@ -7,3 +7,5 @@
 /build
 /out
 /bin
+*.iml
+*.project
