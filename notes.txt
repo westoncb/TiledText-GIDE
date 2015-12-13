@@ -5,6 +5,8 @@
 	OR, MORE LIKELY: It also may just be that it really needed to be structured in such a way that when drawing a frame, the renderer polls the model and constructs a view on the fly, rather than trying to put everything (view-wise) in its place as events occur.
 	I think if you do both of the above things and get rid of the idea of being at one abstraction level, and node types having abstraction levels (replacing it with specific nodes either being collapsed or expanded), this will actually be pretty straightforward to code.
 
+As a way of going about executing this refactor: maybe start from scratch in the sense that you start writing a new Tiled Text Program, rather than trying to modify the old CodeEditor program (by ‘Program’ I mean, like, ‘Program.java’ from the framework). This way you can keep using all the mundane stuff, but not have to worry about disentangling the nasty stuff you’re going to be restructuring anyway.
+
 Probably just leave off animations, deleting all the old EventManager etc. stuff, then do something like the PropertyModulator system that can do automatic animation when changing thing’s positions.
 
 To deal with parse errors: just leave the section with the parse error ‘structureless’; in other words, it’s either a single tile for the whole region, or if you go inside, it goes immediately to the character level.
